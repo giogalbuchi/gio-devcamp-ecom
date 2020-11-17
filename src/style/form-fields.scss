@@ -28,9 +28,15 @@
         background-color: #00CB79;
         font-size: 16px;
         color: white;
+        border: none;
 
         &:focus {
             outline: none;
         }
+    }
+
+    &__gray-button {
+        background: #999999;
+        width: 137px;
     }
 }
