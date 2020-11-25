@@ -1,13 +1,36 @@
 import {
     SET_USER_PURCHASES,
     SET_PURCHASE_DETAIL,
-    SET_CART_PRODUCTS
+    SET_CART_PRODUCTS,
+    ADD_CART_PRODUCT,
+    AUTHENTICATE_USER
 } from './types';
+
+export function signIn({email, password}) {
+    return ({
+        type: AUTHENTICATE_USER,
+        payload: {
+            user: {
+                _id: 0,
+                name: 'Gio Galbuchi',
+                address: '1234 I live here',
+                cartProducts: []
+            }
+        }
+    })
+}
 
 export function setPurchaseDetail(_id) {
     return ({
         type: SET_PURCHASE_DETAIL,
         payload: _id
+    })
+}
+
+export function addCartProduct(product) {
+    return ({
+        type: ADD_CART_PRODUCT,
+        payload: product
     })
 }
 
@@ -22,7 +45,8 @@ export function fetchCartProducts() {
                     title: 'JavaScript in the Browser',
                     description: 'serves to reserve space where real data is nominally present. ... For testing, dummy data can also be used as stubs or pad to avoid software testing issues by ensuring that all variables and data fields are occupied',
                     price: 1.99,
-                    belongsTo: [0, 1]
+                    belongsTo: [0, 1],
+                    imageUrl: 'http://via.placeholder.com/80x80'
                 },
                 quantity: 2
             },
@@ -33,7 +57,8 @@ export function fetchCartProducts() {
                     title: 'Graph Database',
                     description: 'serves to reserve space where real data is nominally present. ... For testing, dummy data can also be used as stubs or pad to avoid software testing issues by ensuring that all variables and data fields are occupied',
                     price: 1.99,
-                    belongsTo: [0, 6]
+                    belongsTo: [0, 6],
+                    imageUrl: 'http://via.placeholder.com/80x80'
                 },
                 quantity: 1
             },
